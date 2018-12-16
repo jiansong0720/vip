@@ -6,9 +6,13 @@
 </head>
 <body>
 <div class="main">
-    <input id="vipurl" placeholder="视频地址" class="layui-input">
-    <button class="layui-btn" style="float: right;margin-top: -38px;position: relative;" onclick="onPlay();">播放
-    </button>
+    <div align="center">
+        <input id="vipurl" placeholder="视频地址" class="layui-input">
+        <button class="layui-btn" style="float: right;margin-top: -38px;position: relative;" onclick="onPlay();">播放
+        </button>
+    </div>
+    <iframe id="vipurldd" width="100%" height="100%" frameborder=0 src="cc.html">
+    </iframe>
     <footer>
         &copy;2018 <a href="https://github.com/jiansong0720"> JianSong❥(^_-)JianXuan </a>
     </footer>
@@ -16,7 +20,13 @@
 
 <script type="text/javascript">
     function onPlay() {
-        window.open('http://app.baiyug.cn:2019/vip/?url='+document.getElementById("vipurl").value)
+        var url = document.getElementById("vipurl").value;
+        var byId = document.getElementById("vipurldd");
+        if (url != "") {
+            byId.src = 'http://app.baiyug.cn:2019/vip/?url=' + document.getElementById("vipurl").value;
+        } else {
+            byId.src = "cc.html";
+        }
     }
 </script>
 </body>
